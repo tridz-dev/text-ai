@@ -1,4 +1,4 @@
-import { useState, useEffect,useContext } from "react";
+import { useState, useEffect,useContext,useRef } from "react";
 import {Routes,Route} from "react-router-dom";
 import Dashboard from "./Layouts/Dashboard/Dashboard";
 import Write from "./pages/write/Write";
@@ -16,24 +16,21 @@ function App() {
 
   const {user,setUser}=useContext(PersistContext);
   const [loading,setLoading]=useState(true);
-  let notBeta=false;
+  const beta=useRef(true);
   useEffect(()=>{
       onAuthStateChanged(auth,(googleUser)=>{
         googleUser && setUser(googleUser.email);
-        // if(googleUser){
-        //   setUser(googleUser.email);
-        // }
       });
       fetchFirebase();
   },[user]);
 
   async function fetchFirebase(){
-    console.log(user);
     const docRef=doc(db,"beta-email","beta-email");
     const docSnap=await getDoc(docRef);
     if(docSnap.exists()){
       const userAccess=docSnap.data().emailId.includes(user);
-      notBeta=userAccess;
+      console.log(userAccess);
+      beta.current=userAccess;
       setLoading(false);
     }
   }
@@ -41,11 +38,12 @@ function App() {
   if(loading)
     return <LoadingScreen text={"Initializing ..."}/>
   
-  if(!user || notBeta)
+
+  if(!user || !beta.current)
   {
     return (
     <>
-      {console.log("You do not have access yet")}
+      {!beta.current && console.log("You do not have access yet")}
       <Gate/>
     </>
     )
