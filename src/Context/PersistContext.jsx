@@ -5,12 +5,17 @@ const PersistContext=createContext();
 
 export const PersistProvider=({children})=>{
     const {t}=useTranslation();
+
+    const [user,setUser]=useState(false);
+
     const [writeResponseText,setWriteResponseText]=useState("");
     const [analyzeText,setAnalyzeText]=useState(t("Analyze Placeholder"));
     const [analyzeResponse,setAnalyzeResponse]=useState(undefined); //object
     const [imagineQuery,setImagineQuery]=useState(t("Imagine Placeholder"));
     const [imagineResponseUrl,setImagineResponseUrl]=useState("");
     return (<PersistContext.Provider value={{
+        user,
+        setUser,
         writeResponseText,
         setWriteResponseText,
         analyzeText,

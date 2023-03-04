@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 import{useTranslation} from "react-i18next";
 import AccountNav from "./../Layouts/Dashboard/AccountNav";
 import Menu from "./../Layouts/Dashboard/MobileNav/Menu";
+import { signOut, auth, onAuthStateChanged } from "./../firebase";
 
 function Header({setDirection}) {
   // const handleSelect=()=>{
@@ -9,6 +10,11 @@ function Header({setDirection}) {
   //   console.log(select.value);
   // }
   const {t}=useTranslation();
+
+  const handleLogout=async ()=>{
+    await signOut(auth);
+  }
+
   return (
     <header className="sticky top-0 z-40 bg-white pz-4 ">
       <div className="flex h-16 items-center justify-between border-b border-b-slate-200 py-4 ">
@@ -22,13 +28,14 @@ function Header({setDirection}) {
           </a>
           <Menu/>
           <nav className="hidden gap-6 md:flex">
-            {/* <Link
+            <Link
               className="flex items-center text-lg font-semibold text-slate-600 sm:text-sm"
               to="#"
               data-bcup-haslogintext="no"
+              onClick={handleLogout}
             >
-              {t("account")}
-            </Link> */}
+              {t("Logout")}
+            </Link>
           </nav>
         </div>
         <div className="flex">
