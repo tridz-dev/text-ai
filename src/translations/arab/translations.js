@@ -25,8 +25,11 @@ export const TRANSLATIONS_ARAB={
     "Imagining":"تخيل",
     "Share":"يشارك",
     "Copy":"ينسخ",
+    "Copied":"نسخ",
     "Write Placeholder":"اكتب رسالة إلى الموظف الأفضل أداءً لتهنئته",
     "Analyze Placeholder":"قفز الثعلب البني السريع فوق الكلب الكسول",
     "Imagine Placeholder":"شخص يمشي في المطر ، لوحة باستيل",
-    "Output Language":"لغة الإخراج"
+    "Output Language":"لغة الإخراج",
+    "Suggest":"يقترح",
+    "What do you want?":"ماذا تريد ؟"
 };
