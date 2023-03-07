@@ -4,17 +4,19 @@ import {useTranslation} from "react-i18next";
 import InputQuery from "./components/InputQuery";
 import ResultScreen from "./components/ResultScreen";
 import LoadingScreen from "./../../components/LoadingScreen";
+import MainButton from "./../../components/buttons/MainButton";
+import CopyButton from "./../../components/buttons/CopyButton";
 import {analytics} from "./../../firebase";
 import { logEvent } from "firebase/analytics";
 
 function Imagine(){
     const {t}=useTranslation();
-    const {imagineQuery,setImagineQuery,imagineResponseUrl,setImagineResponseUrl}=useContext(PersistContext);
+    const {imagineResponseUrl,setImagineResponseUrl}=useContext(PersistContext);
     const [loading,setLoading]=useState(false);
-    // const [responseImage,setResponseImage]=useState(false);
-    // let query=undefined;
-    // const setQuery=(text)=>query=text;
-    const submitQuery=()=>{
+    
+    const resetHandler=()=>setImagineResponseUrl("");
+
+    const submitQuery=(imagineQuery)=>{
         setLoading(true);
         const myHeaders = new Headers();
         myHeaders.append("Authorization", "Basic dGVzdDE6dGVzdDFfcGFzcw==");
@@ -47,11 +49,27 @@ function Imagine(){
         // },5000);
     }
 
-    if(loading)
-        return <LoadingScreen text={`${t("Imagining")}...`}/>
-    else if(imagineResponseUrl)
-        return <ResultScreen url={imagineResponseUrl} setImagineResponseUrl={setImagineResponseUrl}/>
-    return <InputQuery imagineQuery={imagineQuery} setQuery={setImagineQuery} submitQuery={submitQuery}/>
+    return (
+        <div className="flex flex-col overflow-hidden h-full">
+            <div className="flex justify-between">
+                <div className="text-2xl font-bold tracking-wide text-slate-900">{t("Imagine")}</div>
+                {(!loading && imagineResponseUrl) && <MainButton text={t("Modify")} onClickHandler={resetHandler}/>}
+            </div>
+             <div className={"flex flex-col border border-black border-dashed rounded-md border-slate-200 mt-12"}>
+                {loading && <LoadingScreen text={`${t("Imagining")}...`}/>}
+                {(!loading && imagineResponseUrl) && 
+                <>
+                    <div className="p-2 self-end">
+                        <CopyButton text={imagineResponseUrl}/>
+                    </div>
+                    <ResultScreen
+                    url={imagineResponseUrl}/>
+                </>}
+                {(!loading && !imagineResponseUrl) && <InputQuery 
+                    submitQuery={submitQuery} />}
+             </div>
+        </div>
+    );
 }
 
 export default Imagine;
