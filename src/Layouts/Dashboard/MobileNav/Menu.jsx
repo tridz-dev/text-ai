@@ -2,7 +2,7 @@ import {useState} from "react";
 import { NavVertical } from "../Nav"
 import Avatar from "./../Sidebar/Avatar";
 const Menu=()=>{
-    console.log(window.innerWidth);
+    // console.log(window.innerWidth);
     const [open,setDisplay]=useState(false);
     return (
     <div className="md:hidden flex justify-between">
@@ -20,7 +20,7 @@ const Menu=()=>{
         {open && (<div className="bg-white absolute top-11 h-screen w-full px-4 py-4 flex flex-col justify-between"
         onClick={()=>setDisplay(false)}>
             <NavVertical/>
-                <div className="mb-10">
+                <div className="mb-20">
                     <Avatar/>
                 </div>
         </div>)}
