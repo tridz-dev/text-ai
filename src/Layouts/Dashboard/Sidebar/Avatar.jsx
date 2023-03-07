@@ -4,23 +4,23 @@ import {signOut,auth} from "./../../../firebase";
 
 function Avatar(){
     const {user}=useContext(AuthContext);
-    const calcName=() => {
-        const maxLength=9;
-        const firstName=user.displayName.split(' ')[0];
-        return firstName.length>maxLength?
-            firstName.substring(0,maxLength)+"..."
-            :firstName;
-    };
-    const calcEmail=()=>{
-        const maxLength=13;
-        return user.email.substring(0,maxLength)+"...";
-    };
+    // const calcName=() => {
+    //     const maxLength=9;
+    //     const firstName=user.displayName.split(' ')[0];
+    //     return firstName.length>maxLength?
+    //         firstName.substring(0,maxLength)+"..."
+    //         :firstName;
+    // };
+    // const calcEmail=()=>{
+    //     const maxLength=13;
+    //     return user.email.substring(0,maxLength)+"...";
+    // };
     return(
-        <div className="max-w-fit mb-4 px-1.5 py-1 bg-white border rounded-lg flex justify-between shadow-sm" dir="ltr">
+        <div className="max-w-sm mb-4 px-1.5 py-1 bg-white border rounded-lg flex justify-between shadow-sm" dir="ltr">
             <img src={user.photoURL} className="relative inline-block h-12 w-12 rounded-full object-cover object-center"/>
-            <div className="ml-2">
-                <p className="font-semibold text-sm mt-2 text-nav-blue-active" title={user.displayName}>{calcName()}</p>
-                <p className="text-xs text-nav-blue-active" title={user.email}>{calcEmail()}</p>
+            <div className="ml-2 whitespace-nowrap overflow-hidden">
+                <p className="font-semibold text-sm mt-2 text-nav-blue-active" title={user.displayName}>{user.displayName}</p>
+                <p className="text-xs text-nav-blue-active text-ellipsis whitespace-nowrap overflow-hidden" title={user.email}>{user.email}</p>
             </div>
             <button className="ml-2 text-xs" onClick={async ()=>await signOut(auth)}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-logout text-nav-blue-active" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">

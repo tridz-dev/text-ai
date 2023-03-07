@@ -20,7 +20,7 @@ const Menu=()=>{
         {open && (<div className="bg-white absolute top-11 h-screen w-full px-4 py-4 flex flex-col justify-between"
         onClick={()=>setDisplay(false)}>
             <NavVertical/>
-                <div className="mb-20">
+                <div className="mb-20 self-center">
                     <Avatar/>
                 </div>
         </div>)}
