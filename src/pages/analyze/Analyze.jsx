@@ -10,7 +10,7 @@ import {analytics} from "./../../firebase";
 import { logEvent } from "firebase/analytics";
 function Analyze(){
     const {t}=useTranslation();
-    const {analyzeResponse,setAnalyzeResponse}=useContext(PersistContext);
+    const {suggestQuery,analyzeResponse,setAnalyzeResponse}=useContext(PersistContext);
     const [loading,setLoading]=useState(false);
     const [currentPage,setCurrentPage]=useState(1);
     const resetHandler=()=>setAnalyzeResponse("");
@@ -50,6 +50,10 @@ function Analyze(){
         // },1000);
     }
 
+    const regenerateHandler=()=>{
+        submitAnalyze(suggestQuery);
+    }
+
     function pageIncreaseHandler(){
         if(currentPage+1<=analyzeResponse.length)
             setCurrentPage((prevState)=>prevState+1);
@@ -64,7 +68,11 @@ function Analyze(){
         <div className="flex flex-col overflow-hidden h-full">
             <div className="flex justify-between">
                 <div className="text-2xl font-bold tracking-wide text-slate-900">{t("Suggest")}</div>
-                {(!loading && analyzeResponse) && <MainButton text={t("Modify")} onClickHandler={resetHandler}/>}
+                {(!loading && analyzeResponse) && (
+                <div>
+                    <span className="mr-2"><MainButton text={t("Regenerate")} onClickHandler={regenerateHandler}/></span>
+                    <MainButton text={t("Modify")} onClickHandler={resetHandler}/>
+                </div>)}
             </div>
             {!loading && analyzeResponse && (
                 <div className="flex justify-end mt-12 text-slate-500">
