@@ -31,5 +31,6 @@ export const TRANSLATIONS_EN={
     "Imagine Placeholder":"A person walking in rain, pastel painting",
     "Output Language":"Output Language",
     "Suggest":"Suggest",
-    "What do you want?":"What do you want?"
+    "What do you want?":"What do you want?",
+    "Regenerate":"Regenerate"
 };
