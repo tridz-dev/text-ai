@@ -31,5 +31,6 @@ export const TRANSLATIONS_ARAB={
     "Imagine Placeholder":"شخص يمشي في المطر ، لوحة باستيل",
     "Output Language":"لغة الإخراج",
     "Suggest":"يقترح",
-    "What do you want?":"ماذا تريد ؟"
+    "What do you want?":"ماذا تريد ؟",
+    "Regenerate":"تجديد"
 };

@@ -58,8 +58,8 @@ function Imagine(){
             <div className="flex justify-between">
                 <div className="text-2xl font-bold tracking-wide text-slate-900">{t("Imagine")}</div>
                 {(!loading && imagineResponseUrl) && (
-                <div>
-                    <span className="mr-2"><MainButton text={t("Regenerate")} onClickHandler={regenerateHandler}/></span>
+                <div className="flex flex-col md:flex-row">
+                    <MainButton text={t("Regenerate")} onClickHandler={regenerateHandler} className="mb-2 md:m-auto md:mx-2"/>
                     <MainButton text={t("Modify")} onClickHandler={resetHandler}/>
                 </div>)}
             </div>
