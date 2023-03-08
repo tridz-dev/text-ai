@@ -1,4 +1,5 @@
-import {createContext,useState} from "react";
+import {createContext,useEffect,useState} from "react";
+import {useTranslation} from "react-i18next";
 
 const PersistContext=createContext();
 
@@ -14,6 +15,17 @@ export const PersistProvider=({children})=>{
     const [analyzeResponse,setAnalyzeResponse]=useState(undefined); //object
     const [imagineResponseUrl,setImagineResponseUrl]=useState("");
 
+    const {t}=useTranslation();
+    const [writeQuery,setWriteQuery]=useState(t("Write Placeholder"));
+    const [suggestQuery,setSuggestQuery]=useState(t("Analyze Placeholder"));
+    const [imagineQuery,setImagineQuery]=useState(t("Imagine Placeholder"));
+
+    useEffect(()=>{
+            setWriteQuery(t("Write Placeholder"));
+            setSuggestQuery(t("Analyze Placeholder"));
+            setImagineQuery(t("Imagine Placeholder"));
+    },[language])
+
     return (<PersistContext.Provider value={{
         language,
         setLanguage,
@@ -22,7 +34,13 @@ export const PersistProvider=({children})=>{
         analyzeResponse,
         setAnalyzeResponse,
         imagineResponseUrl,
-        setImagineResponseUrl
+        setImagineResponseUrl,
+        writeQuery,
+        setWriteQuery,
+        suggestQuery,
+        setSuggestQuery,
+        imagineQuery,
+        setImagineQuery
     }}>
         {children}
     </PersistContext.Provider>);

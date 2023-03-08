@@ -6,27 +6,28 @@ import MainButton from "./../../../components/buttons/MainButton";
 
 function InputQuery({submitQuery}){
     const {t}=useTranslation();
-    const {language}=useContext(PersistContext);
-    const [queryText,setQueryText]=useState(t("Write Placeholder"));
+    const {writeQuery,setWriteQuery}=useContext(PersistContext);
+    const [queryText,setQueryText]=useState(writeQuery);
+    
     useEffect(()=>{
-        setTimeout(()=>{
-            setQueryText(t("Write Placeholder"));
-        });
-    },[language]);
+            setQueryText(writeQuery);
+    },[writeQuery]);
+
     function handleCreate(){
         if(queryText){
+            setWriteQuery(queryText);
             submitQuery(queryText);
         }
     }
     return (
         <div className="flex flex-col">
             <textarea id="queryText"
-            value={queryText}
-            className="border-0 resize-none h-36 p-5"
-            style={{"boxShadow":"none"}}
-            onChange={(e)=>setQueryText(e.target.value)}/>
+                value={queryText}
+                className="border-0 resize-none h-36 p-5"
+                style={{ "boxShadow": "none" }}
+                onChange={(e) => setQueryText(e.target.value)} />
             <ButtonHolder>
-                <MainButton text={t("create")} onClickHandler={handleCreate}/>
+                <MainButton text={t("create")} onClickHandler={handleCreate} />
             </ButtonHolder>
         </div>
     );
