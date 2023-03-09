@@ -41,11 +41,14 @@ function Analyze(){
         .catch((err)=>console.log(err));
         // setTimeout(()=>{
         //     logEvent(analytics,"analyze",{query:analyzeText});
-        //     setAnalyzeResponse({
-        //         "Tone": "Positive",
-        //         "Quality": "Informative",
-        //         "Grammar": 9
-        //     });
+        //     const response={
+        //         "1":{"html":"<br><br>The nation is eager to learn about the status of the emergency.","txt":"\n\nThe nation is eager to learn about the status of the emergency."},
+        //         "2":{"html":".<br><br>The nation is eager to learn about the status of the emergency.","txt":".\n\nThe nation is eager to learn about the status of the emergency."},
+        //         "3":{"html":"<br><br>The nation is eager to learn about the status of the emergency.","txt":"\n\nThe nation is eager to learn about the status of the emergency."},
+        //         "4":{"html":".<br><br>The nation is eager to learn about the status of the emergency.","txt":".\n\nThe nation is eager to learn about the status of the emergency."}
+        //     };
+        //     console.log(Object.values(response));
+        //     setAnalyzeResponse(Object.values(response));
         //     setLoading(false);
         // },1000);
     }
