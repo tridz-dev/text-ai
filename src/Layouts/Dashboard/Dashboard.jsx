@@ -5,6 +5,7 @@ import Header from "./../../components/Header";
 import Sidebar from "./Sidebar/Sidebar";
 import Content from "./../../components/Content";
 import Footer from "./../../components/Footer";
+import OnboardModal from "./OnboardModal/OnboardModal";
 
 function Dashboard({children}) {
   const {language}=useContext(PersistContext);
@@ -15,6 +16,7 @@ function Dashboard({children}) {
   document.dir=language==="ar"?"rtl":"ltr";
   return (
     <div className="mx-auto flex flex-col" lang={language}>      
+    <OnboardModal/>
       <Header/>
       <div id="content" className="grid md:grid-cols-[210px_2fr]">
         <Sidebar />     
