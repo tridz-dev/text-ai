@@ -10,7 +10,7 @@ import {analytics} from "./../../firebase";
 import { logEvent } from "firebase/analytics";
 function Write(){
     const {t}=useTranslation();
-    const {writeResponseText,setWriteResponseText}=useContext(PersistContext);
+    const {writeQuery,writeResponseText,setWriteResponseText}=useContext(PersistContext);
     const [loading,setLoading]=useState(false);
     const outputLang=useRef("en");
     // const setOutputLang=(lang)=>outputLang.current=lang;
@@ -67,11 +67,18 @@ function Write(){
         //     setLoading(false);
         // },5000);
     }
+    const regenerateHandler=()=>{
+        submitQuery(writeQuery);
+    }
     return (
         <div className="flex flex-col overflow-hidden h-full">
             <div className="flex justify-between">
                 <div className="text-2xl font-bold tracking-wide text-slate-900">{t("write")}</div>
-                {(!loading && writeResponseText) && <MainButton text={t("Modify")} onClickHandler={resetHandler}/>}
+                {(!loading && writeResponseText) && (
+                <div className="flex flex-col md:flex-row">
+                    <MainButton text={t("Regenerate")} onClickHandler={regenerateHandler} className="mb-2 md:m-auto md:mx-2"/>
+                    <MainButton text={t("Modify")} onClickHandler={resetHandler}/>
+                </div>)}
             </div>
              <div className={"flex flex-col border border-black border-dashed rounded-md border-slate-200 mt-12"}>
                 {loading && <LoadingScreen text={`${t("writing")}...`}/>}

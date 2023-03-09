@@ -10,7 +10,7 @@ import {analytics} from "./../../firebase";
 import { logEvent } from "firebase/analytics";
 function Analyze(){
     const {t}=useTranslation();
-    const {analyzeResponse,setAnalyzeResponse}=useContext(PersistContext);
+    const {suggestQuery,analyzeResponse,setAnalyzeResponse}=useContext(PersistContext);
     const [loading,setLoading]=useState(false);
     const [currentPage,setCurrentPage]=useState(1);
     const resetHandler=()=>setAnalyzeResponse("");
@@ -41,13 +41,20 @@ function Analyze(){
         .catch((err)=>console.log(err));
         // setTimeout(()=>{
         //     logEvent(analytics,"analyze",{query:analyzeText});
-        //     setAnalyzeResponse({
-        //         "Tone": "Positive",
-        //         "Quality": "Informative",
-        //         "Grammar": 9
-        //     });
+        //     const response={
+        //         "1":{"html":"<br><br>The nation is eager to learn about the status of the emergency.","txt":"\n\nThe nation is eager to learn about the status of the emergency."},
+        //         "2":{"html":".<br><br>The nation is eager to learn about the status of the emergency.","txt":".\n\nThe nation is eager to learn about the status of the emergency."},
+        //         "3":{"html":"<br><br>The nation is eager to learn about the status of the emergency.","txt":"\n\nThe nation is eager to learn about the status of the emergency."},
+        //         "4":{"html":".<br><br>The nation is eager to learn about the status of the emergency.","txt":".\n\nThe nation is eager to learn about the status of the emergency."}
+        //     };
+        //     console.log(Object.values(response));
+        //     setAnalyzeResponse(Object.values(response));
         //     setLoading(false);
         // },1000);
+    }
+
+    const regenerateHandler=()=>{
+        submitAnalyze(suggestQuery);
     }
 
     function pageIncreaseHandler(){
@@ -64,7 +71,11 @@ function Analyze(){
         <div className="flex flex-col overflow-hidden h-full">
             <div className="flex justify-between">
                 <div className="text-2xl font-bold tracking-wide text-slate-900">{t("Suggest")}</div>
-                {(!loading && analyzeResponse) && <MainButton text={t("Modify")} onClickHandler={resetHandler}/>}
+                {(!loading && analyzeResponse) && (
+                <div className="flex flex-col md:flex-row">
+                    <MainButton text={t("Regenerate")} onClickHandler={regenerateHandler} className="mb-2 md:m-auto md:mx-2"/>
+                    <MainButton text={t("Modify")} onClickHandler={resetHandler}/>
+                </div>)}
             </div>
             {!loading && analyzeResponse && (
                 <div className="flex justify-end mt-12 text-slate-500">

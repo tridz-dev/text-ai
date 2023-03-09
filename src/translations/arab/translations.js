@@ -27,9 +27,10 @@ export const TRANSLATIONS_ARAB={
     "Copy":"ينسخ",
     "Copied":"نسخ",
     "Write Placeholder":"اكتب رسالة إلى الموظف الأفضل أداءً لتهنئته",
-    "Analyze Placeholder":"قفز الثعلب البني السريع فوق الكلب الكسول",
+    "Analyze Placeholder":"The quick brown fox jumped over the lazy dog",
     "Imagine Placeholder":"شخص يمشي في المطر ، لوحة باستيل",
     "Output Language":"لغة الإخراج",
     "Suggest":"يقترح",
-    "What do you want?":"ماذا تريد ؟"
+    "What do you want?":"ماذا تريد ؟",
+    "Regenerate":"تجديد"
 };

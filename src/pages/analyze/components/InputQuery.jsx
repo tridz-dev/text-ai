@@ -5,24 +5,25 @@ import ButtonHolder from "./../../../components/ButtonHolder";
 import MainButton from "./../../../components/buttons/MainButton";
 
 function InputQuery({submitAnalyze}){
-    const {language}=useContext(PersistContext);
+    const {suggestQuery,setSuggestQuery}=useContext(PersistContext);
     const {t}=useTranslation();
-    const [queryText,setQueryText]=useState(t("Analyze Placeholder"))
+    const [queryText,setQueryText]=useState(suggestQuery)
     useEffect(()=>{
-        setTimeout(()=>{
-            setQueryText(t("Analyze Placeholder"));
-        })
-    },[language])
+       setQueryText(suggestQuery);
+    },[suggestQuery]);
     const handleAnalyze=()=>{
         if(queryText){
+            setSuggestQuery(queryText);
             submitAnalyze(queryText);
         }
     }
     return(
         <div className="flex flex-col">
         <textarea id="queryText"
+        lang="en"
+        dir="ltr"
         value={queryText}
-        className="border-0 resize-none h-36 p-5"
+        className="border-0 resize-none h-96 p-5 font-sans"
         style={{"boxShadow":"none"}}
         onChange={(e)=>setQueryText(e.target.value)}/>
         <ButtonHolder>

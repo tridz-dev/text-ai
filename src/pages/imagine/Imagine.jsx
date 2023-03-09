@@ -11,7 +11,7 @@ import { logEvent } from "firebase/analytics";
 
 function Imagine(){
     const {t}=useTranslation();
-    const {imagineResponseUrl,setImagineResponseUrl}=useContext(PersistContext);
+    const {imagineQuery,imagineResponseUrl,setImagineResponseUrl}=useContext(PersistContext);
     const [loading,setLoading]=useState(false);
     
     const resetHandler=()=>setImagineResponseUrl("");
@@ -49,11 +49,19 @@ function Imagine(){
         // },5000);
     }
 
+    const regenerateHandler=()=>{
+        submitQuery(imagineQuery);
+    }
+
     return (
         <div className="flex flex-col overflow-hidden h-full">
             <div className="flex justify-between">
                 <div className="text-2xl font-bold tracking-wide text-slate-900">{t("Imagine")}</div>
-                {(!loading && imagineResponseUrl) && <MainButton text={t("Modify")} onClickHandler={resetHandler}/>}
+                {(!loading && imagineResponseUrl) && (
+                <div className="flex flex-col md:flex-row">
+                    <MainButton text={t("Regenerate")} onClickHandler={regenerateHandler} className="mb-2 md:m-auto md:mx-2"/>
+                    <MainButton text={t("Modify")} onClickHandler={resetHandler}/>
+                </div>)}
             </div>
              <div className={"flex flex-col border border-black border-dashed rounded-md border-slate-200 mt-12"}>
                 {loading && <LoadingScreen text={`${t("Imagining")}...`}/>}
