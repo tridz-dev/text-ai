@@ -73,8 +73,13 @@ function Analyze(){
                 <div className="text-2xl font-bold tracking-wide text-slate-900">{t("Suggest")}</div>
                 {(!loading && analyzeResponse) && (
                 <div className="flex flex-col md:flex-row">
-                    <MainButton text={t("Regenerate")} onClickHandler={regenerateHandler} className="mb-2 md:m-auto md:mx-2"/>
-                    <MainButton text={t("Modify")} onClickHandler={resetHandler}/>
+                    <MainButton text={t("Regenerate")}
+                    onClickHandler={regenerateHandler}
+                    className="mb-2 md:m-auto md:mx-2"
+                    regenerate/>
+                    <MainButton text={t("Modify")}
+                    onClickHandler={resetHandler}
+                    edit/>
                 </div>)}
             </div>
             {!loading && analyzeResponse && (

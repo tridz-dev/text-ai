@@ -34,10 +34,10 @@ function NavVertical() {
             <Icon3dCubeSphere className="mr-2" />
             <span className="mx-3 text-2xl md:text-sm">{t("Suggest")}</span>
         </NavLink>
-        <NavLink to="/explain" data-bcup-haslogintext="no" className={({isActive})=>isActive?active:inactive}>
+        {/* <NavLink to="/explain" data-bcup-haslogintext="no" className={({isActive})=>isActive?active:inactive}>
             <IconSchool className="mr-2" />
             <span className="mx-3 text-2xl md:text-sm">{t("explain")}</span>
-        </NavLink>
+        </NavLink> */}
         <NavLink to="/imagine" data-bcup-haslogintext="no" className={({isActive})=>isActive?active:inactive}>
             <IconCrystalBall className="mr-2"/>
             <span className="mx-3 text-2xl md:text-sm">{t("Imagine")}</span>

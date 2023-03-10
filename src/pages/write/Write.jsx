@@ -76,8 +76,13 @@ function Write(){
                 <div className="text-2xl font-bold tracking-wide text-slate-900">{t("write")}</div>
                 {(!loading && writeResponseText) && (
                 <div className="flex flex-col md:flex-row">
-                    <MainButton text={t("Regenerate")} onClickHandler={regenerateHandler} className="mb-2 md:m-auto md:mx-2"/>
-                    <MainButton text={t("Modify")} onClickHandler={resetHandler}/>
+                    <MainButton text={t("Regenerate")}
+                    onClickHandler={regenerateHandler}
+                    className="mb-2 md:m-auto md:mx-2"
+                    regenerate/>
+                    <MainButton text={t("Modify")}
+                    onClickHandler={resetHandler}
+                    edit/>
                 </div>)}
             </div>
              <div className={"flex flex-col border border-black border-dashed rounded-md border-slate-200 mt-12"}>
