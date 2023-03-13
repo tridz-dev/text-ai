@@ -12,7 +12,7 @@ function EmailAuthentication({setLoggedIn}){
         const email=document.querySelector("#emailInput").value;
         const emailIs=availableEmails.includes(email);
         if(emailRegex.test(email)){
-            // localStorage.setItem("email",email);
+            localStorage.setItem("email",email);
             emailIs?setLoggedIn(email):setAccess(false);
             setInvalidEmail(false);
             return;
@@ -24,7 +24,7 @@ function EmailAuthentication({setLoggedIn}){
     return(
         <form className="w-screen h-screen flex flex-col justify-center items-center">
             <div className="w-4/5 sm:w-3/5 md:1/3 lg:w-1/3">
-                {invalidEmail && (<div className="mb-4 rounded-lg bg-red-100 py-2 px-6 text-base text-red-800 flex"
+                {invalidEmail && (<div className="mb-4 rounded-lg bg-red-100 py-2 px-6 text-base font-semibold text-red-800 flex"
                 role="alert">
                     <IconAlertOctagon className="mr-3"/>
                     <span>Please enter a valid email address</span>
