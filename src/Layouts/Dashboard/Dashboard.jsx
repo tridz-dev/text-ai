@@ -13,10 +13,8 @@ function Dashboard({children}) {
   
   useEffect(()=>{
     const onboardModalStatus=localStorage.getItem("onBoardModal");
-    if(!onboardModalStatus){
-      localStorage.setItem("onBoardModal",true);
+    if(!onboardModalStatus)
       setShowModal(true);
-    }
   },[])
 
   useEffect(()=>{

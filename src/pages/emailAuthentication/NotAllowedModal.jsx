@@ -1,13 +1,14 @@
-import ReactModal from "react-modal";
+import MainButton from "../../components/buttons/MainButton";
+import Modal from "./../../components/Modal";
 
-function NotAllowedModal(){
-    ReactModal.setAppElement("#root");
+function NotAllowedModal({closeModal}){
     return(
-        <ReactModal isOpen={true}
-        overlayClassName="fixed inset-0 bg-slate-500/50"
-        className="absolute inset-x-4 inset-y-16 sm:inset-y-24 md:inset-x-32 md:inset-y-28 lg:inset-x-72 bg-white outline-none  h-fit">
-        
-        </ReactModal>
+        <Modal>
+            <h1 className="text-2xl font-bold tracking-wide text-slate-900 pb-3 border-b-2">Access Denied</h1>
+            <p className="text-md my-4">We're sorry, but access to this website is currently restricted to a select group of users as we are still in the beta testing phase. We apologize for any inconvenience this may cause and appreciate your interest in our website.</p>
+            <MainButton text="OK"
+            onClickHandler={()=>closeModal(true)}/>
+        </Modal>
     );
 }
 
