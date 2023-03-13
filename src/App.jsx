@@ -1,4 +1,4 @@
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {Routes,Route} from "react-router-dom";
 import Dashboard from "./Layouts/Dashboard/Dashboard";
 import Write from "./pages/write/Write";
@@ -6,8 +6,19 @@ import Analyze from "./pages/analyze/Analyze";
 import Imagine from "./pages/imagine/Imagine";
 import Explain from "./pages/explain/Explain";
 import "./App.css";
+import EmailAuthentication from "./pages/emailAuthentication/EmailAuthentication";
 
 function App() {
+  const [isLoggedIn,setLoggedIn]=useState(true);
+  useEffect(()=>{
+    const email=localStorage.getItem("email");
+    if(!email)
+      setLoggedIn(false);
+  },[]);
+
+  if(!isLoggedIn)
+    return <EmailAuthentication setLoggedIn={setLoggedIn}/>
+
   return (
     <Routes>
       <Route path="/" element={
