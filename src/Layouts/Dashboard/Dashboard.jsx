@@ -13,10 +13,8 @@ function Dashboard({children}) {
   
   useEffect(()=>{
     const onboardModalStatus=localStorage.getItem("onBoardModal");
-    if(!onboardModalStatus){
-      localStorage.setItem("onBoardModal",true);
+    if(!onboardModalStatus)
       setShowModal(true);
-    }
   },[])
 
   useEffect(()=>{
@@ -25,7 +23,6 @@ function Dashboard({children}) {
     document.querySelector("body").lang=language;
   },[language]);
   
-  document.dir=language==="ar"?"rtl":"ltr";
   return (
     <div className="mx-auto flex flex-col">      
     {showModal && <OnboardModal setShowModal={setShowModal}/>}
