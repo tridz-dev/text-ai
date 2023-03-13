@@ -6,7 +6,7 @@ import Analyze from "./pages/analyze/Analyze";
 import Imagine from "./pages/imagine/Imagine";
 import Explain from "./pages/explain/Explain";
 import "./App.css";
-import EmailAuthentication from "./components/EmailAuthentication";
+import EmailAuthentication from "./pages/emailAuthentication/EmailAuthentication";
 
 function App() {
   const [isLoggedIn,setLoggedIn]=useState(true);
