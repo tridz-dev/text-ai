@@ -22,11 +22,12 @@ function Dashboard({children}) {
   useEffect(()=>{
     localStorage.setItem("language",language);
     i18n.changeLanguage(language);
+    document.querySelector("body").lang=language;
   },[language]);
   
   document.dir=language==="ar"?"rtl":"ltr";
   return (
-    <div className="mx-auto flex flex-col" lang={language}>      
+    <div className="mx-auto flex flex-col">      
     {showModal && <OnboardModal setShowModal={setShowModal}/>}
       <Header/>
       <div id="content" className="grid md:grid-cols-[210px_2fr]">

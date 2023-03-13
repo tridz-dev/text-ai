@@ -32,5 +32,10 @@ export const TRANSLATIONS_ARAB={
     "Output Language":"لغة الإخراج",
     "Suggest":"يقترح",
     "What do you want?":"ماذا تريد ؟",
-    "Regenerate":"تجديد"
+    "Regenerate":"تجديد",
+    "Beta Preview":"هذه معاينة تجريبية",
+    "Our Goal":"هدفنا هو الحصول على ردود فعل خارجية لتعزيز سلامة نظامنا وفعاليته",
+    "Modal Warning":"أثناء قيامنا بتنفيذ الضمانات المعمول بها ، قد ينتج النظام أحيانًا محتوى غير دقيق أو مخادع.",
+    "Done":"منتهي",
+    "Important":"مهم"
 };
