@@ -1,5 +1,5 @@
 import {useTranslation} from "react-i18next";
-import {useState} from "react";
+// import {useState} from "react";
 import ReactModal from "react-modal";
 import {
     IconMicroscope,
@@ -7,12 +7,12 @@ import {
 } from "@tabler/icons";
 
 
-function OnboardModal(){
+function OnboardModal({setShowModal}){
     ReactModal.setAppElement("#root");
     const {t}=useTranslation();
-    const [showModal,setShowModal]=useState(true);    
+    // const [showModal,setShowModal]=useState(true);    
     return(
-        <ReactModal isOpen={showModal}
+        <ReactModal isOpen={true}
         overlayClassName="fixed inset-0 bg-slate-500/50"
         className="absolute inset-x-4 inset-y-16 sm:inset-y-24 md:inset-x-32 md:inset-y-28 lg:inset-x-72 bg-white outline-none  h-fit">
             <div className="p-3">
@@ -32,7 +32,8 @@ function OnboardModal(){
                     <p className="text-sm">While we have implemented safeguards in place, the system may occasionally produce inaccurate or deceptive content.</p>
                 </div>
                 <div className="flex justify-end">
-                    <button onClick={()=>setShowModal(false)} className="rounded-md border border-transparent bg-slate-900 px-4 leading-8 text-sm font-medium text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2">
+                    <button onClick={()=>setShowModal(false)} 
+                    className="rounded-md border border-transparent bg-slate-900 px-4 leading-8 text-sm font-medium text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2">
                         {t("Next")}
                     </button>
                 </div>
