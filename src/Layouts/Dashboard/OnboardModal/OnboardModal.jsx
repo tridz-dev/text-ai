@@ -14,7 +14,7 @@ function OnboardModal(){
     return(
         <ReactModal isOpen={showModal}
         overlayClassName="fixed inset-0 bg-slate-500/50"
-        className="absolute md:inset-x-96 md:inset-y-40 bg-white outline-none overflow-auto">
+        className="absolute inset-x-8 inset-y-32 md:inset-x-32 lg:inset-x-96 md:inset-y-40 bg-white outline-none overflow-auto h-fit">
             <div className="p-3">
                 <div className="p-5 border rounded-lg border-dashed">
                 <h1 className="text-2xl font-bold tracking-wide text-slate-900 pb-3 border-b-2">{t("Imagine")}</h1>
