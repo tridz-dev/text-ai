@@ -1,5 +1,6 @@
 import {useState} from "react";
 import { NavVertical } from "../Nav";
+import Avatar from "./../Sidebar/Avatar";
 const Menu=()=>{
     const [open,setDisplay]=useState(false);
     return (
@@ -18,6 +19,9 @@ const Menu=()=>{
         {open && (<div className="bg-white absolute top-11 h-screen w-full px-4 py-4"
         onClick={()=>setDisplay(false)}>
             <NavVertical/>
+            <span className="px-3 py-2">
+                <Avatar className="mt-4"/>
+            </span>
         </div>)}
     </div>);
 }

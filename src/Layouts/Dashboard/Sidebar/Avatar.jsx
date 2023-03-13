@@ -2,7 +2,7 @@ import {useContext} from "react";
 import AuthContext from "./../../../Context/AuthContext";
 import {signOut,auth} from "./../../../firebase";
 
-function Avatar(){
+function Avatar({className}){
     const {user}=useContext(AuthContext);
     // const calcName=() => {
     //     const maxLength=9;
@@ -16,10 +16,10 @@ function Avatar(){
     //     return user.email.substring(0,maxLength)+"...";
     // };
     return(
-        <div className="max-w-sm mb-4 px-1.5 py-1 bg-white border rounded-lg flex justify-between shadow-sm" dir="ltr">
+        <div className={`max-w-sm mb-4 px-1.5 py-1 bg-white border rounded-lg flex justify-around md:justify-between shadow-sm ${className}`} dir="ltr">
             <img src={user.photoURL} className="relative inline-block h-12 w-12 rounded-full object-cover object-center"/>
             <div className="ml-2 whitespace-nowrap overflow-hidden">
-                <p className="font-semibold text-sm mt-2 text-nav-blue-active" title={user.displayName}>{user.displayName}</p>
+                <p className="font-semibold text-xl md:text-lg text-nav-blue-active" title={user.displayName}>{user.displayName.split(" ")[0]}</p>
                 <p className="text-xs text-nav-blue-active text-ellipsis whitespace-nowrap overflow-hidden" title={user.email}>{user.email}</p>
             </div>
             <button className="ml-2 text-xs" onClick={async ()=>await signOut(auth)}>
