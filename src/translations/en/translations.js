@@ -32,5 +32,10 @@ export const TRANSLATIONS_EN={
     "Output Language":"Output Language",
     "Suggest":"Suggest",
     "What do you want?":"What do you want?",
-    "Regenerate":"Regenerate"
+    "Regenerate":"Regenerate",
+    "Beta Preview":"This is a beta preview",
+    "Our Goal":"Our goal is to obtain external feedback to enhance our system's safety and efficacy",
+    "Modal Warning":"While we have implemented safeguards in place, the system may occasionally produce inaccurate or deceptive content.",
+    "Done":"Done",
+    "Important":"Important"
 };
