@@ -85,7 +85,7 @@ function Analyze(){
             {!loading && analyzeResponse && (
                 <div className="flex justify-end mt-12 text-slate-500">
                     <div dir="ltr" className="flex">
-                    {`${currentPage} of ${analyzeResponse.length} suggestions`}
+                    {`${currentPage} of ${analyzeResponse.length} ${t("Suggestions")}`}
                     <button onClick={pageDecreaseHandler}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>

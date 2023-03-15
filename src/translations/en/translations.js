@@ -37,5 +37,6 @@ export const TRANSLATIONS_EN={
     "Our Goal":"Our goal is to obtain external feedback to enhance our system's safety and efficacy",
     "Modal Warning":"While we have implemented safeguards in place, the system may occasionally produce inaccurate or deceptive content.",
     "Done":"Done",
-    "Important":"Important"
+    "Important":"Important",
+    "Suggestions":"Suggestions"
 };
