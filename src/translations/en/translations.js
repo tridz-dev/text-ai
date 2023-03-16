@@ -1,5 +1,5 @@
 export const TRANSLATIONS_EN={
-    "title":"Imagine Feed",
+    "title":"Welcome",
     "subtitle":"Limitless imaginations, in no time.",
     "content_none":"No imaginations",
     "content_none_description":"You don't have any imaginations. Start imagining",

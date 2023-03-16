@@ -7,7 +7,7 @@ function Title(props) {
         <h1 className="text-2xl font-bold tracking-wide text-slate-900">
           {props.title}       
         </h1>
-        <p className="text-neutral-500">{props.subtitle}</p>
+        {/* <p className="text-neutral-500">{props.subtitle}</p> */}
       </div>
 
        {/* <button
