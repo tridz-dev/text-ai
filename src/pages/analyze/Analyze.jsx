@@ -70,7 +70,7 @@ function Analyze(){
     return (
         <div className="flex flex-col overflow-hidden h-full">
             <div className="flex justify-between">
-                <div className="text-2xl font-bold tracking-wide text-slate-900">{t("Suggest")}</div>
+                <div className="text-2xl font-bold tracking-wide text-slate-900 self-center">{t("Suggest")}</div>
                 {(!loading && analyzeResponse) && (
                 <div className="flex flex-col md:flex-row">
                     <MainButton text={t("Regenerate")}

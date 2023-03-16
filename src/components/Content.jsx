@@ -1,11 +1,10 @@
-import { IconBrandUnity, IconPlus } from "@tabler/icons";
+import { IconBrandUnity} from "@tabler/icons";
 import Title from "./Title";
 import OutlineButtonLink from "./buttons/OutlineButtonLink";
 import {useTranslation} from "react-i18next";
 
 function Content() {
   const {t}=useTranslation();
-  const outlineButtonCss="w-full max-w-sm md:w-28 md:mx-1 my-2 inline-flex justify-center rounded-md border px-4 py-2 text-sm font-medium border-slate-200 bg-white text-brand-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2";
   return (
     <main className="flex w-full flex-1 flex-col overflow-hidden">
       <div className="grid items-start gap-8">
@@ -31,7 +30,7 @@ function Content() {
                
                 Imagine
               </button> */}
-              <div className="w-full mt-8">
+              <div className="w-full flex flex-col md:flex-row md:items-stretch items-center justify-center mt-8">
                 <OutlineButtonLink to="/write" text={t("write")} write/>
                 <OutlineButtonLink to="/suggest" text={t("Suggest")} suggest/>
                 {/* <OutlineButtonLink to="/explain" text={t("explain")} explain/> */}

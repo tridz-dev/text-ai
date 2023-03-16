@@ -73,7 +73,7 @@ function Write(){
     return (
         <div className="flex flex-col overflow-hidden h-full">
             <div className="flex justify-between">
-                <div className="text-2xl font-bold tracking-wide text-slate-900">{t("write")}</div>
+                <div className="text-2xl font-bold tracking-wide text-slate-900 self-center">{t("write")}</div>
                 {(!loading && writeResponseText) && (
                 <div className="flex flex-col md:flex-row">
                     <MainButton text={t("Regenerate")}
