@@ -28,7 +28,7 @@ function Dashboard({children}) {
     <div className="mx-auto flex flex-col">      
     {showModal && <OnboardModal setShowModal={setShowModal}/>}
       <Header/>
-      <div id="content" className="grid md:grid-cols-[210px_2fr]">
+      <div id="content" className="grid md:grid-cols-[230px_2fr]">
         <Sidebar />     
         {/* {children?
           (<div className="pt-4 mx-12">{children}</div>):<Content/>} */}

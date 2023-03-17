@@ -1,10 +1,13 @@
 import {Link} from "react-router-dom";
+import PersistContext from "./../../Context/PersistContext";
+import { useContext } from "react";
 
 function OutlineButtonLink({to,text,write,suggest,explain,imagine}){
+    const {language}=useContext(PersistContext);
     return(
         <Link to={to}
-        className="w-full max-w-xs md:w-28 md:mx-1 my-2 inline-flex justify-center rounded-md border px-4 py-2 text-sm font-medium border-slate-200 bg-white text-brand-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2">
-            <span className="w-8 self-center">
+        className="w-full max-w-xs md:w-40 md:mx-1 my-2 inline-flex justify-center rounded-md border px-4 py-2 text-sm font-medium border-slate-200 bg-white text-brand-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2">
+            <span className="w-8 md:w-fit md:mr-1 self-center">
             {write && (
                   <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-wand" width="20" height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -46,7 +49,7 @@ function OutlineButtonLink({to,text,write,suggest,explain,imagine}){
                 </svg>
             )}
             </span>
-            <span className="w-14 text-start self-center">{text}</span>
+            <span className={`${language==="ar"?"w-28":"w-20"} md:w-fit text-start self-center`}>{text}</span>
         </Link>);
 }
 

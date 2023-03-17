@@ -10,7 +10,7 @@ import {analytics} from "./../../firebase";
 import { logEvent } from "firebase/analytics";
 function Write(){
     const {t}=useTranslation();
-    const {writeQuery,writeResponseText,setWriteResponseText}=useContext(PersistContext);
+    const {language,writeQuery,writeResponseText,setWriteResponseText}=useContext(PersistContext);
     const [loading,setLoading]=useState(false);
     const outputLang=useRef("en");
     // const setOutputLang=(lang)=>outputLang.current=lang;
@@ -72,16 +72,17 @@ function Write(){
     }
     return (
         <div className="flex flex-col overflow-hidden h-full">
-            <div className="flex justify-between">
-                <div className="text-2xl font-bold tracking-wide text-slate-900 self-center">{t("write")}</div>
+            <div className={`flex ${(language==="ar") && "flex-col md:flex-row"} justify-between`}>
+                <div className={`text-2xl font-bold tracking-wide text-slate-900 ${!(language==="ar") && "self-center"}`}>{t("write")}</div>
                 {(!loading && writeResponseText) && (
-                <div className="flex flex-col md:flex-row">
+                <div className={`flex flex-col md:flex-row ${(language==="ar") && "mt-1 md:mt-0"}`}>
                     <MainButton text={t("Regenerate")}
                     onClickHandler={regenerateHandler}
-                    className="mb-2 md:m-auto md:mx-2"
+                    className={`mb-2 md:m-auto md:mx-2 ${(language==="ar") && "w-64 md:w-auto"} `}
                     regenerate/>
                     <MainButton text={t("Modify")}
                     onClickHandler={resetHandler}
+                    className={`${language==="ar" && "w-64 md:w-auto"}`}
                     edit/>
                 </div>)}
             </div>
