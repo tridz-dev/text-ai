@@ -11,7 +11,7 @@ import { logEvent } from "firebase/analytics";
 
 function Imagine(){
     const {t}=useTranslation();
-    const {imagineQuery,imagineResponseUrl,setImagineResponseUrl}=useContext(PersistContext);
+    const {language,imagineQuery,imagineResponseUrl,setImagineResponseUrl}=useContext(PersistContext);
     const [loading,setLoading]=useState(false);
     
     const resetHandler=()=>setImagineResponseUrl("");
@@ -55,16 +55,17 @@ function Imagine(){
 
     return (
         <div className="flex flex-col overflow-hidden h-full">
-            <div className="flex justify-between">
-                <div className="text-2xl font-bold tracking-wide text-slate-900 self-center">{t("Imagine")}</div>
+            <div className={`flex ${(language==="ar") && "flex-col md:flex-row"} justify-between`}>
+                <div className={`text-2xl font-bold tracking-wide text-slate-900 ${!(language==="ar") && "self-center"}`}>{t("Imagine")}</div>
                 {(!loading && imagineResponseUrl) && (
-                <div className="flex flex-col md:flex-row">
+                <div className={`flex flex-col md:flex-row ${(language==="ar") && "mt-1 md:mt-0"}`}>
                     <MainButton text={t("Regenerate")}
                     onClickHandler={regenerateHandler}
-                    className="mb-2 md:m-auto md:mx-2"
+                    className={`mb-2 md:m-auto md:mx-2 ${(language==="ar") && "w-64 md:w-auto"} `}
                     regenerate/>
                     <MainButton text={t("Modify")}
                     onClickHandler={resetHandler}
+                    className={`${language==="ar" && "w-64 md:w-auto"}`}
                     edit/>
                 </div>)}
             </div>
