@@ -1,5 +1,6 @@
 import {useContext} from "react";
 import AuthContext from "./Context/AuthContext";
+import { useState, useEffect } from "react";
 import {Routes,Route} from "react-router-dom";
 import Gate from "./components/Gate";
 import Dashboard from "./Layouts/Dashboard/Dashboard";
@@ -8,7 +9,6 @@ import Analyze from "./pages/analyze/Analyze";
 import Imagine from "./pages/imagine/Imagine";
 import Explain from "./pages/explain/Explain";
 import "./App.css";
-
 function App() {
   const {user}=useContext(AuthContext);
   if(!user)
