@@ -1,6 +1,7 @@
 import { NavVertical } from "./../Nav";
 import Avatar from "./Avatar";
 function Sidebar() {
+
 return(
 <aside className="w-[250px] flex-col md:flex justify-between hidden bg-nav-blue h-screen pt-4 px-6 shadow-inner">
   <div>
