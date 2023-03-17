@@ -1,24 +1,19 @@
+import {useContext} from "react";
+import AuthContext from "./Context/AuthContext";
 import { useState, useEffect } from "react";
 import {Routes,Route} from "react-router-dom";
+import Gate from "./components/Gate";
 import Dashboard from "./Layouts/Dashboard/Dashboard";
 import Write from "./pages/write/Write";
 import Analyze from "./pages/analyze/Analyze";
 import Imagine from "./pages/imagine/Imagine";
 import Explain from "./pages/explain/Explain";
 import "./App.css";
-import EmailAuthentication from "./pages/emailAuthentication/EmailAuthentication";
-
 function App() {
-  const [isLoggedIn,setLoggedIn]=useState(true);
-  useEffect(()=>{
-    const email=localStorage.getItem("email");
-    if(!email)
-      setLoggedIn(false);
-  },[]);
-
-  if(!isLoggedIn)
-    return <EmailAuthentication setLoggedIn={setLoggedIn}/>
-
+  const {user}=useContext(AuthContext);
+  if(!user)
+    return <Gate/>
+  
   return (
     <Routes>
       <Route path="/" element={
