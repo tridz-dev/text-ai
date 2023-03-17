@@ -23,6 +23,7 @@ function Dashboard({children}) {
     document.querySelector("body").lang=language;
   },[language]);
   
+  document.dir=language==="ar"?"rtl":"ltr";
   return (
     <div className="mx-auto flex flex-col">      
     {showModal && <OnboardModal setShowModal={setShowModal}/>}
